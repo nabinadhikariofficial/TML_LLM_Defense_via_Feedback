@@ -50,24 +50,27 @@ The pipeline runs on a single **NVIDIA H200 (141GB)** using a 4-module architect
 ```bash
 git clone [https://github.com/yourusername/self-hardening-llm-defense.git](https://github.com/yourusername/self-hardening-llm-defense.git)
 cd self-hardening-llm-defense
+```
 
 # Create environment
+```bash
 conda create -n defense_loop python=3.10
 conda activate defense_loop
-
+```
 # Install dependencies
+```bash
 pip install torch transformers peft datasets bitsandbytes accelerate wandb
-
+```
 ## 🚀 Usage
 
 ### **Prepare Datasets**
 ```bash
 python prepare_data.py
-
+```
 ### Execute the full defense loop:
 ```bash
 python main.py
-
+```
 
 ## 📊 Results & Analysis
 
