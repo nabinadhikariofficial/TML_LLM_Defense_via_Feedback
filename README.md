@@ -57,3 +57,57 @@ conda activate defense_loop
 
 # Install dependencies
 pip install torch transformers peft datasets bitsandbytes accelerate wandb
+
+## 🚀 Usage
+
+### **Prepare Datasets**
+```bash
+python prepare_data.py
+
+### Execute the full defense loop:
+```bash
+python main.py
+
+
+## 📊 Results & Analysis
+
+We performed an ablation study comparing self-hardening performance when training defenses against a **Weak 8B adversary** versus a **Strong 70B adversary** across **10 iterative cycles**.
+
+### **Comparison: 8B vs. 70B Adversary**
+
+| Metric | 8B Adversary (Weak) | 70B Adversary (Strong) | Analysis |
+|--------|----------------------|--------------------------|----------|
+| **Initial Threat** | Low (7.5% ASR) | High (15.5% ASR) | 70B finds ~2× more initial vulnerabilities. |
+| **Generalization** | Poor (+0.6%) | Strong (+1.2%) | 70B significantly reduces vulnerability to unseen attack types. |
+| **Failure Mode** | Panic Overfitting | Gradual Trade-off | 8B causes sudden spike in FPR (25%). 70B yields smooth robustness–utility curve. |
+
+### **Key Finding**
+
+> **Adversarial capability determines defensive robustness.**  
+Weak adversaries lead to overfitting and keyword-based heuristics, while strong adversaries force the model to learn genuine semantic safety features.
+
+---
+
+## 🔮 Future Work
+
+### **Experience Replay**
+Mitigate rising FPR ("Alignment Tax") by injecting stable **Golden Prompts** into retraining batches.
+
+### **Direct Preference Optimization (DPO)**
+Replace SFT with DPO to directly optimize the **safety–utility trade-off**.
+
+### **Multi-Turn Defense**
+Extend the `DefenseModule` context window to detect **Crescendo Attacks**, where malicious intent emerges gradually across multiple turns.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+Please see the **CONTRIBUTING.md** file for:
+- Development guidelines  
+- Code of conduct  
+- Pull request workflow  
+
+---
