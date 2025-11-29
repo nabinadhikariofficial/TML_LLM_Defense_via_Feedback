@@ -49,7 +49,7 @@ The pipeline runs on a single **NVIDIA H200 (141GB)** using a 4-module architect
 ### Installation
 ```bash
 git clone https://github.com/nabinadhikariofficial/TML_LLM_Defense_via_Feedback.git
-cd self-hardening-llm-defense
+cd TML_LLM_Defense_via_Feedback
 ```
 
 # Create environment
